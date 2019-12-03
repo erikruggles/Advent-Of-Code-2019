@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using AdventOfCode2019.Day01;
 using AdventOfCode2019.Day02;
+using AdventOfCode2019.Day03;
 
 namespace AdventOfCode2019
 {
@@ -40,6 +41,14 @@ namespace AdventOfCode2019
                     }
                 }
             }
+            
+            //Day 3
+            var electricalPanel = new ElectricPanel(await ElectricPanel.ParseImportFileForWirePaths());
+            electricalPanel.ProcessPaths();
+            var (x, y, _) = electricalPanel.FindClosesIntersectionToOriginByManhattanDistance();
+            Console.WriteLine($"Manhattan Distance to closest intersection: {Math.Abs(x)+Math.Abs(y)}");
+            var (_, _, z) = electricalPanel.FindClosesIntersectionToOriginByWireLength();
+            Console.WriteLine($"Wire Distance to closest intersection: {z}");
             
             Console.ReadKey();
         }
