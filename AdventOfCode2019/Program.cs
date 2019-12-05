@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AdventOfCode2019.Day01;
 using AdventOfCode2019.Day02;
 using AdventOfCode2019.Day03;
+using AdventOfCode2019.Day04;
 
 namespace AdventOfCode2019
 {
@@ -49,6 +50,13 @@ namespace AdventOfCode2019
             Console.WriteLine($"Manhattan Distance to closest intersection: {Math.Abs(x)+Math.Abs(y)}");
             var (_, _, z) = electricalPanel.FindClosesIntersectionToOriginByWireLength();
             Console.WriteLine($"Wire Distance to closest intersection: {z}");
+            
+            //Day 4
+            var passwordCracker = new PasswordCracker(183564, 657474);
+            var validPasswords = passwordCracker.FindValidPasswords(false);
+            Console.WriteLine($"Number of valid passwords with no length restriction on repeats: {validPasswords.Count}");
+            validPasswords = passwordCracker.FindValidPasswords(true);
+            Console.WriteLine($"Number of valid passwords with a repeat of exactly two: {validPasswords.Count}");
             
             Console.ReadKey();
         }
