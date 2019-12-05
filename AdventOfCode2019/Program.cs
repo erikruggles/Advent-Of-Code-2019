@@ -58,6 +58,13 @@ namespace AdventOfCode2019
             validPasswords = passwordCracker.FindValidPasswords(true);
             Console.WriteLine($"Number of valid passwords with a repeat of exactly two: {validPasswords.Count}");
             
+            //Day 5
+            var intcodeDay5 = await Day05.IntcodeComputer.ParseImportFileForIntCode();
+            var intcodeComputerDay5 = new Day05.IntcodeComputer(intcodeDay5, 1);
+            intcodeComputerDay5.ProcessIntcode();
+            intcodeComputerDay5 = new Day05.IntcodeComputer(intcodeDay5, 5);
+            intcodeComputerDay5.ProcessIntcode();
+            
             Console.ReadKey();
         }
     }
