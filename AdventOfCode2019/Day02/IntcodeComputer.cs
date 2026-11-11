@@ -22,7 +22,7 @@ namespace AdventOfCode2019.Day02
         public static async Task<int[]> ParseImportFileForIntCode()
         {
             var moduleText =
-                await File.ReadAllTextAsync(@"C:\Projects\Advent-Of-Code-2019\AdventOfCode2019\Day02\intcode.json");
+                await File.ReadAllTextAsync(@"C:\s\Advent-Of-Code-2019\AdventOfCode2019\Day02\intcode.json");
             return JsonConvert.DeserializeObject<int[]>(moduleText);
         }
         

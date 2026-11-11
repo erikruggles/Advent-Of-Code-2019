@@ -12,11 +12,13 @@ namespace AdventOfCode2019
         static async Task Main(string[] args)
         {
             //Day 1
+            Console.WriteLine("=== Day 1 ===");
             var rocket = await Rocket.BuildRocketFromImportedModules();
             Console.WriteLine($"Total Fuel Required By Module Mass: {rocket.CalculateTotalFuelRequiredByMass()}");
             Console.WriteLine($"Total Fuel Required: {rocket.CalculateTotalFuelRequired()}");
 
             //Day 2
+            Console.WriteLine("=== Day 2 ===");
             var intcode = await IntcodeComputer.ParseImportFileForIntCode();
             var intcodeComputer = new IntcodeComputer(intcode, 12, 2);
             Console.WriteLine($"Value at position 0: {intcodeComputer.ProcessIntcode()}");
@@ -44,6 +46,7 @@ namespace AdventOfCode2019
             }
             
             //Day 3
+            Console.WriteLine("=== Day 3 ===");
             var electricalPanel = new ElectricPanel(await ElectricPanel.ParseImportFileForWirePaths());
             electricalPanel.ProcessPaths();
             var (x, y, _) = electricalPanel.FindClosesIntersectionToOriginByManhattanDistance();
@@ -52,6 +55,7 @@ namespace AdventOfCode2019
             Console.WriteLine($"Wire Distance to closest intersection: {z}");
             
             //Day 4
+            Console.WriteLine("=== Day 4 ===");
             var passwordCracker = new PasswordCracker(183564, 657474);
             var validPasswords = passwordCracker.FindValidPasswords(false);
             Console.WriteLine($"Number of valid passwords with no length restriction on repeats: {validPasswords.Count}");
@@ -59,13 +63,25 @@ namespace AdventOfCode2019
             Console.WriteLine($"Number of valid passwords with a repeat of exactly two: {validPasswords.Count}");
             
             //Day 5
+            Console.WriteLine("=== Day 5 ===");
             var intcodeDay5 = await Day05.IntcodeComputer.ParseImportFileForIntCode();
             var intcodeComputerDay5 = new Day05.IntcodeComputer(intcodeDay5, 1);
             intcodeComputerDay5.ProcessIntcode();
             intcodeComputerDay5 = new Day05.IntcodeComputer(intcodeDay5, 5);
             intcodeComputerDay5.ProcessIntcode();
-            
-            Console.ReadKey();
+
+            //Day 6
+            Console.WriteLine("=== Day 6 ===");
+            var orbitMap = await Day06.OrbitMap.BuildOrbitMapFromImportFile();
+            Console.WriteLine($"Direct orbits: {orbitMap.CountDirectOrbits()}");
+            Console.WriteLine($"Indirect orbits: {orbitMap.CountIndirectOrbits()}");
+            Console.WriteLine($"Total orbits: {orbitMap.CountTotalOrbits()}");
+            var youToSanta = orbitMap.GetDistance("YOU", "SAN");
+            Console.WriteLine($"Distance between YOU and SAN: {youToSanta}");
+            // YOU and SAN are each one step from the objects they orbit, so the transfers needed are two fewer.
+            Console.WriteLine($"Orbital transfers from YOU's orbit to SAN's orbit: {youToSanta - 2}");
+
+            Console.Read();
         }
     }
 }
