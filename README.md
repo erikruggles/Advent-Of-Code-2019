@@ -13,7 +13,7 @@ This is my repository to keep track of all of the code I have written to help so
 | 7 | 368584 | 35993240 |
 | 8 | 2210 | CGEGE |
 | 9 | 3765554916 | 76642 |
-| 10 |  |  |
+| 10 | 314 | 1513 |
 | 11 |  |  |
 | 12 |  |  |
 | 13 |  |  |

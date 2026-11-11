@@ -113,6 +113,22 @@ namespace AdventOfCode2019
             sensorBoost.Run();
             Console.WriteLine($"Distress signal coordinates: {string.Join(",", sensorBoost.ReadAllOutputs())}");
 
+            //Day 10
+            Console.WriteLine("=== Day 10 ===");
+            var asteroidMap = await Day10.AsteroidMap.BuildFromImportFile();
+            var (stationLocation, detectedAsteroids) = asteroidMap.FindBestMonitoringStation();
+            Console.WriteLine($"Best monitoring station at {stationLocation.x},{stationLocation.y} detects {detectedAsteroids} asteroids");
+            var vaporizationOrder = asteroidMap.GetVaporizationOrder(stationLocation);
+            if (vaporizationOrder.Count >= 200)
+            {
+                var (x200, y200) = vaporizationOrder[199];
+                Console.WriteLine($"200th asteroid vaporized is at {x200},{y200}: X * 100 + Y = {x200 * 100 + y200}");
+            }
+            else
+            {
+                Console.WriteLine($"Only {vaporizationOrder.Count} asteroids can be vaporized, so there is no 200th");
+            }
+
             Console.Read();
         }
     }
