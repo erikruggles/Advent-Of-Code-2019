@@ -89,6 +89,13 @@ namespace AdventOfCode2019
             var (maxLoopSignal, bestLoopPhases) = amplifierCircuit.FindMaxFeedbackLoopSignal(new[] { 5, 6, 7, 8, 9 });
             Console.WriteLine($"Highest feedback loop thruster signal: {maxLoopSignal} (phase settings {string.Join(",", bestLoopPhases)})");
 
+            //Day 8
+            Console.WriteLine("=== Day 8 ===");
+            var spaceImage = await Day08.SpaceImage.BuildFromImportFile(25, 6);
+            Console.WriteLine($"Number of 1 digits * number of 2 digits on layer with fewest 0 digits: {spaceImage.CalculateCorruptionCheck()}");
+            Console.WriteLine("Decoded image:");
+            Console.WriteLine(spaceImage.Render());
+
             Console.Read();
         }
     }
