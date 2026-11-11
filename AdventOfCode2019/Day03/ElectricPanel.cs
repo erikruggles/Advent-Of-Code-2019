@@ -95,7 +95,7 @@ namespace AdventOfCode2019.Day03
         public static async Task<List<string[]>> ParseImportFileForWirePaths()
         {
             var moduleText =
-                await File.ReadAllTextAsync(@"C:\Projects\Advent-Of-Code-2019\AdventOfCode2019\Day03\wirepaths.json");
+                await File.ReadAllTextAsync(@"C:\s\Advent-Of-Code-2019\AdventOfCode2019\Day03\wirepaths.json");
             var unseparatedPaths = JsonConvert.DeserializeObject<List<string>>(moduleText);
             return unseparatedPaths.Select(p => p.Split(',')).ToList();
         }

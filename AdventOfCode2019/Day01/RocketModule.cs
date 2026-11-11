@@ -32,7 +32,7 @@ namespace AdventOfCode2019.Day01
         public static async Task<Rocket> BuildRocketFromImportedModules()
         {
             var moduleText =
-                await File.ReadAllTextAsync(@"C:\Projects\Advent-Of-Code-2019\AdventOfCode2019\Day01\modules.json");
+                await File.ReadAllTextAsync(@"C:\s\Advent-Of-Code-2019\AdventOfCode2019\Day01\modules.json");
             return JsonConvert.DeserializeObject<Rocket>(moduleText);
         }
 
