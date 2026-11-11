@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AdventOfCode2019.Day01;
 using AdventOfCode2019.Day02;
@@ -95,6 +96,22 @@ namespace AdventOfCode2019
             Console.WriteLine($"Number of 1 digits * number of 2 digits on layer with fewest 0 digits: {spaceImage.CalculateCorruptionCheck()}");
             Console.WriteLine("Decoded image:");
             Console.WriteLine(spaceImage.Render());
+
+            //Day 9
+            Console.WriteLine("=== Day 9 ===");
+            var boostProgram = await Day09.IntcodeComputer.ParseImportFile(
+                @"C:\s\Advent-Of-Code-2019\AdventOfCode2019\Day09\boost-input.csv");
+            var boostTest = new Day09.IntcodeComputer(boostProgram);
+            boostTest.AddInput(1);
+            boostTest.Run();
+            var boostOutputs = boostTest.ReadAllOutputs();
+            if (boostOutputs.Count > 1)
+                Console.WriteLine($"Malfunctioning opcodes reported: {string.Join(",", boostOutputs.Take(boostOutputs.Count - 1))}");
+            Console.WriteLine($"BOOST keycode: {boostOutputs.LastOrDefault()}");
+            var sensorBoost = new Day09.IntcodeComputer(boostProgram);
+            sensorBoost.AddInput(2);
+            sensorBoost.Run();
+            Console.WriteLine($"Distress signal coordinates: {string.Join(",", sensorBoost.ReadAllOutputs())}");
 
             Console.Read();
         }
