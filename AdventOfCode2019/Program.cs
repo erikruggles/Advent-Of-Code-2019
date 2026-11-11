@@ -81,6 +81,14 @@ namespace AdventOfCode2019
             // YOU and SAN are each one step from the objects they orbit, so the transfers needed are two fewer.
             Console.WriteLine($"Orbital transfers from YOU's orbit to SAN's orbit: {youToSanta - 2}");
 
+            //Day 7
+            Console.WriteLine("=== Day 7 ===");
+            var amplifierCircuit = await Day07.AmplifierCircuit.BuildFromImportFile();
+            var (maxSignal, bestPhases) = amplifierCircuit.FindMaxThrusterSignal(new[] { 0, 1, 2, 3, 4 });
+            Console.WriteLine($"Highest thruster signal: {maxSignal} (phase settings {string.Join(",", bestPhases)})");
+            var (maxLoopSignal, bestLoopPhases) = amplifierCircuit.FindMaxFeedbackLoopSignal(new[] { 5, 6, 7, 8, 9 });
+            Console.WriteLine($"Highest feedback loop thruster signal: {maxLoopSignal} (phase settings {string.Join(",", bestLoopPhases)})");
+
             Console.Read();
         }
     }
